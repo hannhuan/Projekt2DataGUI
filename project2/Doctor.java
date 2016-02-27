@@ -1,25 +1,12 @@
 package project2;
 
-public class Doctor extends DocOrNurse {
+public class Doctor extends Users {
 	private int GId = 3;
 
 	public Doctor(String UId, String name, String division) {
 		super(UId, name, division);
 	}
-	@Override
-	public boolean getReadAccess() {
-		return false;
-	}
-
-	@Override
-	public boolean getCreateAccess() {
-		return false;
-	}
-
-	@Override
-	public boolean getDeleteAcces() {
-		return false;
-	}
+	
 	
 	@Override
 	public int getGId() {

@@ -79,7 +79,6 @@ public class EditPane extends BasicPanes {
 
 		confirm = new CreateButton(560, 480, "Confirm", server);
 		CreateButton cancel = new CreateButton(772, 480, "Cancel", null);
-		cancel.setCurrentPane(this);
 		confirm.setCurrentPane(this);
 		gui.add(confirm.getbutton());
 		gui.add(cancel.getbutton());
@@ -87,18 +86,10 @@ public class EditPane extends BasicPanes {
 
 	@Override
 	public String getInfo() {
-
-		String information;
-		information = patientIdT.getText() + "," + doctorIdT.getText() + ","
-				+ nurseIdT.getText() + "," + divisionT.getText() + ","
-				+ titleT.getText() + "," + dataT.getText();
-		if (patientIdT.getText().length() != 10
-				|| nurseIdT.getText().length() != 10
-				|| doctorIdT.getText().length() != 10) {
-			information = null;
-		}
+		String information = null;
+		information = dataT.getText();
+		//System.out.println(information);
 		return information;
-
 	}
 
 }

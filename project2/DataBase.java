@@ -59,8 +59,8 @@ private Connection conn;
 		return conn != null;
 	}
 	
-	public User getUser(String UId){
-		User user = null;
+	public Users getUser(String UId){
+		Users user = null;
 		PreparedStatement ps = null;
 		String currentName = null;
 		String division = null;
@@ -75,9 +75,9 @@ private Connection conn;
 					gid = rs.getInt("GId");
 					if(gid==1 || gid==4){
 						if(gid==1){
-							user = new Patient(UId, currentName);
+							user = new Patient(UId, currentName, null);
 						} else 
-							user = new GovernmentAgency(UId, currentName);
+							user = new GovernmentAgency(UId, currentName, null);
 					} else {
 						division = rs.getString("division");
 						if(gid==2){

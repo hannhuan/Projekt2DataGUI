@@ -11,6 +11,7 @@ import project2.Server;
 
 public class ReadPane extends BasicPanes {
 	private String data;
+	private CreateButton readOk;
 	public ReadPane(Server server){
 		super(server);
 		Read();
@@ -28,6 +29,10 @@ public class ReadPane extends BasicPanes {
 		gui.add(test);
 		test.setText(getRecordData());
 		setVisible(true);
+		
+		readOk = new CreateButton(440, 510, "Done", server);
+		readOk.setCurrentPane(this);
+		gui.add(readOk.getbutton());
 	}
 
 	private String getRecordData() {

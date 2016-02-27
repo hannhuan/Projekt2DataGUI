@@ -1,24 +1,18 @@
 package gui;
 
-import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JPasswordField;
-import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
 import project2.Server;
-import project2.User;
 
 /**
  * LoginPane
@@ -61,7 +55,6 @@ public class LoginPane extends JFrame {
 
 		userNameField = new JTextField();
 		userNameField.setBounds(500, 300, 200, 30);
-		// userName.addItem("root"); Maybe JComboBox?
 		userNameField.setEditable(true);
 		gui.add(userNameField);
 
@@ -112,12 +105,6 @@ public class LoginPane extends JFrame {
 	public String getuserName() {
 		return userName;
 	}
-	/**
-	 * public static void main(String[] args) { //
-	 * JFrame.setDefaultLookAndFeelDecorated(true); LoginPane test = new
-	 * LoginPane(); test.setVisible(true);
-	 * 
-	 * }
-	 */
+	
 
 }

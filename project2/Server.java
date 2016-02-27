@@ -1,10 +1,11 @@
 package project2;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
-public class Server {
+public class Server extends Observable {
 	private DataBase db;
-	private User user;
+	private Users user;
 	private String currentKey;
 	private Record record;
 	public Server(){
@@ -43,11 +44,11 @@ public class Server {
 		return false;
 	}
 	
-	public User getUser(String UId) {
+	public Users getUser(String UId) {
 		return db.getUser(UId);
 		
 	}
-	public ArrayList<Record> getRecords(User user){
+	public ArrayList<Record> getRecords(Users user){
 		String UId = user.getUId();
 		int GId = user.getGId();
 		String division = user.getDivision();
@@ -90,17 +91,20 @@ public class Server {
 
 	public boolean createRecord(String information) {
 		String[]info = information.split(","); 
-		if(db.getUser(info[0])!=null && db.getUser(info[1])!=null && db.getUser(info[2])!=null){
-				return db.createRecord(info[0], info[1], info[2],info[3],info[4], info[5]);
+		if(db.getUser(info[0])!=null && db.getUser(info[1])!=null && db.getUser(info[2])!=null && db.createRecord(info[0], info[1], info[2],info[3],info[4], info[5])==true){
+			setChanged();
+			notifyObservers();
+			return true;
 		}
 		return false;
 	}
 	
 	public boolean editRecord (String information){
-		String[]info = information.split(","); 
-		if(db.getUser(info[0])!=null && db.getUser(info[1])!=null && db.getUser(info[2])!=null){
-				return writeTo (info[5]);
-		}
+			if(db.writeTo(record.getNbr(), information)==true){
+			setChanged();
+			notifyObservers();	
+			return true;
+			}
 		return false;
 	}
 
@@ -113,13 +117,14 @@ public class Server {
 
 	public boolean delete() {
 		int nbr = record.getNbr();
-		return db.delete(nbr);
+		record=null;
+		if(db.delete(nbr)==true){
+			setChanged();
+			notifyObservers();
+			return true;
+		}
+		return false;
 		
-	}
-
-	public boolean writeTo(String data) {
-		int nbr = record.getNbr();
-		return db.writeTo(nbr, data);	
 	}
 
 }

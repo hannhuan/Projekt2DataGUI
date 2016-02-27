@@ -26,8 +26,6 @@ import project2.Server;
 public class AfterLogin extends JFrame implements Observer{
 	private String UId;
 	private int GId;
-	private String name;
-	private String division;
 	private Server server;
 	private DefaultListModel<String> list;
 	private JList <String> selectList;
@@ -40,6 +38,7 @@ public class AfterLogin extends JFrame implements Observer{
 		this.list = new DefaultListModel<String>();
 		this.selectList = new JList<String>(list);
 		this.server = server;
+		server.addObserver(this);
 		this.UId = userName;
 		createDemo();
 	}
@@ -80,7 +79,6 @@ public class AfterLogin extends JFrame implements Observer{
 		CreateButton RB = new CreateButton(950, 200, "Read", server);
 		gui.add(RB.getbutton());
 			
-		RB.setAfterLogin(this);
 		if (GId == 4) {
 			DB = new CreateButton(950, 400, "Delete", server);
 			gui.add(DB.getbutton());
@@ -118,6 +116,7 @@ public class AfterLogin extends JFrame implements Observer{
 
 	@Override
 	public void update(Observable o, Object arg) {
+		list.removeAllElements();
 		records = server.findUsersRecords(UId, GId,
 				server.getDivision());
 		for (Record r : records) {

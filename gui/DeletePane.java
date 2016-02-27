@@ -8,20 +8,17 @@ import javax.swing.JOptionPane;
 
 import project2.Server;
 
-public class DeletePane extends Observable {
+public class DeletePane  {
 	private Server server;
-	private JFrame j;
-	public DeletePane(Server server, AfterLogin al){
+
+	public DeletePane(Server server){
 		this.server=server;	
-		j = new JFrame();
 		String ObjButtons[] = {"Yes", "No"};
 		int result = JOptionPane.showOptionDialog(null, "Are you sure you want to delete this profile?", "Confirmation", 
 				JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, ObjButtons, ObjButtons[1]);
 		if (result == 0){
 			Delete delete = new Delete();
 			delete.Delete();
-			setChanged();
-			notifyObservers("Del");
 		}
 		
 	}

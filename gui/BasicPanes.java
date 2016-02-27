@@ -12,7 +12,6 @@ public abstract class BasicPanes extends JFrame {
 	
 	public BasicPanes(Server server) {
 		this.server=server;
-		System.out.println(server.getRecordData());
 		createDemo();
 		setVisible(true);
 
