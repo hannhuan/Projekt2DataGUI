@@ -37,7 +37,7 @@ create table recipes(
 	cookieName varchar (255) not null,
 	flour int (10) default '0',
 	butter int (10) default '0',
-	icingSuger int (10) default '0',
+	icingSugar int (10) default '0',
 	roastedChoppedNuts int (10) default '0',
 	fineGroundNuts int (10) default '0',
 	groundRoastedNuts int (10) default '0',
@@ -49,11 +49,12 @@ create table recipes(
 	eggs int (10) default '0',
 	potatoStarch int (10) default '0',
 	wheatFlour int (10) default '0',
-	sodianBicarbonate int (10) default '0',
+	sodiumBicarbonate int (10) default '0',
 	vanilla int (10) default '0',
 	choppedAlmonds int (10) default '0',
 	cinnamon int (10) default '0',
-	vanillaSugar int (10) default '0'
+	vanillaSugar int (10) default '0',
+	primary key (cookieName)
 );
 
 create table rawMaterial(
@@ -63,4 +64,33 @@ create table rawMaterial(
 	lastUpdate date,
 	primary key (ingredients)
 );
+
+insert into cookies value ('Nut Ring');
+insert into cookies value ('Nut Cookie');
+insert into cookies value ('Amneris');
+insert into cookies value ('Tango');
+insert into cookies value ('Almond Delight');
+insert into cookies value ('Berliner');
+
+insert into customers value ('Finkakor AB', 'Helsingborg');
+insert into customers value ('Småbröd AB', 'Malmö');
+insert into customers value ('Kaffebröd AB', 'Landskrona');
+insert into customers value ('Bjudkakor AB', 'Ystad');
+insert into customers value ('Kalaskakor AB', 'Trelleborg');
+insert into customers value ('Partykakor AB', 'Kristianstad');
+insert into customers value ('Gästkakor AB', 'Hässleholm');
+insert into customers value ('Skånekakor AB', 'Perstorp');
+
+insert into recipes(cookieName, flour, butter, icingSugar, roastedChoppedNuts) 
+value ('Nut Ring', 450, 450, 190, 225);
+insert into recipes(cookieName, fineGroundNuts, groundRoastedNuts, breadCrumbs, sugar, eggWhites, chocolate) 
+value ('Nut Cookie', 750, 625, 125, 375, 368, 50);
+insert into recipes(cookieName, marzipan, butter, eggs, potatoStarch, wheatFlour) 
+value ('Amneris', 750, 250, 250, 25, 25);
+insert into recipes(cookieName, butter, sugar, flour, sodiumBicarbonate, vanilla) 
+value ('Tango', 200, 250, 300, 4, 2);
+insert into recipes(cookieName, butter, sugar, choppedAlmonds, flour, cinnamon) 
+value ('Almond Delight', 400, 270, 279, 400, 10);
+insert into recipes(cookieName, flour, butter, icingSugar, potatoStarch, wheatFlour) 
+value ('Berliner', 350, 250, 100, 50, 5, 50);
 
