@@ -72,6 +72,9 @@ insert into cookies value ('Tango');
 insert into cookies value ('Almond Delight');
 insert into cookies value ('Berliner');
 
+/**
+åäö funkar inte på min dator, även om sparad som UTF-8
+*/
 insert into customers value ('Finkakor AB', 'Helsingborg');
 insert into customers value ('Småbröd AB', 'Malmö');
 insert into customers value ('Kaffebröd AB', 'Landskrona');
