@@ -74,7 +74,16 @@ create table rawMaterial(
 	lastUpdate date,
 	primary key (ingredients)
 );
-
+delimiter //
+ create trigger dateCheck before insert on rawmaterials
+     for each row
+     begin
+     if isnull(NEW.storedDate) then
+     set NEW.storedDate=curdate();
+     set NEW.lastUpdate=curdate();
+     end if;
+     end;//
+delimiter ;
 insert into cookies value ('Nut Ring');
 insert into cookies value ('Nut Cookie');
 insert into cookies value ('Amneris');
