@@ -33,14 +33,14 @@ create table orders(
 	deliveryDate date,
 	ifDelivered char (1) default 'n',
 	primary key(customerName, cookieName, deliveryDate),
-	foreign key (customerName) references customers (customerName) on update cascade,
-	foreign key (cookieName) references cookies (cookieName) on update cascade
+	foreign key (customerName) references customers (customerName),
+	foreign key (cookieName) references cookies (cookieName)
 );
 // Tänkte att detta blir bättre
 create table recipes(
 	cookieName varchar (255) not null,
 	ingredientInfo varchar(500) not null,
-	foreignkey(cookieName) references cookies (cookieName) on update cascade
+	foreignkey(cookieName) references cookies (cookieName)
 );
 
 create table recipes(
