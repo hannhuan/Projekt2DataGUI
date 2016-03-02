@@ -133,8 +133,17 @@ insert into recipes values
 ('Tango', 'Butter' ,200, 'g'),
 ('Tango', 'Sodium bicarbonate' ,4, 'g'),
 ('Tango', 'Vanilla' ,2, 'g'),
-('Almond Delight', 'Butter 400 g; Sugar 270 g; Chopped almonds 279 g; Flour 400 g; Cinnamon 10 g'),
-('Berliner', 'Flour 350 g; Butter 250 g; Icing sugar 100 g; Eggs 50 g; Vanilla sugar 5 g; Chocolate 50 g');
+('Almond Delight', 'Butter', 400, 'g'),
+('Almond Delight', 'Sugar', 270, 'g'),
+('Almond Delight', 'Chopped almonds', 279, 'g'),
+('Almond Delight', 'Flour', 400, 'g'),
+('Almond Delight', 'Cinnamon', 10, 'g'),
+('Berliner', 'Flour', 350, 'g'),
+('Berliner', 'Butter', 250, 'g'),
+('Berliner', 'Icing sugar', 100, 'g'),
+('Berliner', 'Eggs', 50, 'g'),
+('Berliner', 'Vanilla sugar', 5, 'g'),
+('Berliner', 'Chocolate', 50, 'g'),
 
 
 insert into recipes(cookieName, flour, butter, icingSugar, roastedChoppedNuts) 
