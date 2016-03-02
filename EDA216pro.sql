@@ -83,6 +83,14 @@ delimiter //
      set NEW.lastUpdate=curdate();
      end if;
      end;//
+     /** har inte kollatom denna funkar ännu*/
+     create trigger updateCheck before update on rawmaterials
+    -> for each row
+    -> begin
+    -> if NEW.lastUpdate!=curdate() then
+    -> set NEW.lastUpdate=curdate();
+    -> end if;
+    -> end;//
 delimiter ;
 insert into cookies value ('Nut Ring');
 insert into cookies value ('Nut Cookie');
