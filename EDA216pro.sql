@@ -48,8 +48,8 @@ create table orderQuantity(
 	cookieName	varchar(255) not null,
 	nbrPallets	int (20) default '0',
 	primary key(customerName, deliveryDate),
-	foreign key (customerName) references orders (customerName),
-	foreign key (deliveryDate) references orders (deliveryDate)
+	foreign key (customerName, deliveryDate) references orders (customerName, deliveryDate),
+	foreign key (cookieName) references cookies (cookieName)
 );
 
 create table rawMaterial(
