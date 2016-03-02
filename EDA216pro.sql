@@ -12,13 +12,21 @@ create table cookies(
 	primary key (cookieName)
 );
 
-create table storage(
+create table Pallet(
 	cookieName varchar (255) not null,
-	pallets int not null,
+	palletLabel int not null auto_increment,
+	timeStamp datetime not null default CURRENT_TIMESTAMP,
+	status int not null default '0',
 	primary key (cookieName),
 	foreign key (cookieName) references cookies(cookieName)
 );
-
+create table BlockedPallets(
+	palletLabel int,
+	timeStamp datetime,
+	primary key(palletLabel),
+	foreign key(palletLabel) references pallet(palletLabel),
+	foreign key(timeStamp) references pallet(timeStamp)
+);	
 
 create table customers (
 	customerName varchar (255) not null,
@@ -28,43 +36,21 @@ create table customers (
 
 create table orders(
 	customerName varchar (255) not null,
-	cookieName	varchar(255) not null,
-	nbrPallets	int (20) default '0',
+	nbrPallets int (20) default '0',
 	deliveryDate date,
 	ifDelivered char (1) default 'n',
-	primary key(customerName, cookieName, deliveryDate),
-	foreign key (customerName) references customers (customerName),
-	foreign key (cookieName) references cookies (cookieName)
-);
-// Tänkte att detta blir bättre
-create table recipes(
-	cookieName varchar (255) not null,
-	ingredientInfo varchar(500) not null,
-	foreignkey(cookieName) references cookies (cookieName)
+	primary key(customerName, deliveryDate),
+	foreign key (customerName) references customers (customerName)
 );
 
-create table recipes(
-	cookieName varchar (255) not null,
-	flour int (10) default '0',
-	butter int (10) default '0',
-	icingSugar int (10) default '0',
-	roastedChoppedNuts int (10) default '0',
-	fineGroundNuts int (10) default '0',
-	groundRoastedNuts int (10) default '0',
-	breadCrumbs int (10) default '0',
-	sugar int (10) default '0',
-	eggWhites int (10) default '0',
-	chocolate int (10) default '0',
-	marzipan int (10) default '0',
-	eggs int (10) default '0',
-	potatoStarch int (10) default '0',
-	wheatFlour int (10) default '0',
-	sodiumBicarbonate int (10) default '0',
-	vanilla int (10) default '0',
-	choppedAlmonds int (10) default '0',
-	cinnamon int (10) default '0',
-	vanillaSugar int (10) default '0',
-	primary key (cookieName)
+create table orderQuantity(
+	customerName varchar (255),
+	deliveryDate date,
+	cookieName	varchar(255) not null,
+	nbrPallets	int (20) default '0',
+	primary key(customerName, deliveryDate),
+	foreign key (customerName) references orders (customerName),
+	foreign key (deliveryDate) references orders (deliveryDate)
 );
 
 create table rawMaterial(
@@ -111,7 +97,7 @@ insert into customers value ('Partykakor AB', 'Kristianstad');
 insert into customers value ('Gästkakor AB', 'Hässleholm');
 insert into customers value ('Skånekakor AB', 'Perstorp');
 
-insert into recipes values
+insert into recipes values (
 ('Nut Ring', 'flour' 450, 'g'),
 ('Nut Ring', 'butter', 450, 'g'),
 ('Nut Ring', 'icing Sugar' 190, 'g'),
@@ -143,19 +129,7 @@ insert into recipes values
 ('Berliner', 'Icing sugar', 100, 'g'),
 ('Berliner', 'Eggs', 50, 'g'),
 ('Berliner', 'Vanilla sugar', 5, 'g'),
-('Berliner', 'Chocolate', 50, 'g'),
+('Berliner', 'Chocolate', 50, 'g')
+);
 
-
-insert into recipes(cookieName, flour, butter, icingSugar, roastedChoppedNuts) 
-value ('Nut Ring', 450, 450, 190, 225);
-insert into recipes(cookieName, fineGroundNuts, groundRoastedNuts, breadCrumbs, sugar, eggWhites, chocolate) 
-value ('Nut Cookie', 750, 625, 125, 375, 368, 50);
-insert into recipes(cookieName, marzipan, butter, eggs, potatoStarch, wheatFlour) 
-value ('Amneris', 750, 250, 250, 25, 25);
-insert into recipes(cookieName, butter, sugar, flour, sodiumBicarbonate, vanilla) 
-value ('Tango', 200, 250, 300, 4, 2);
-insert into recipes(cookieName, butter, sugar, choppedAlmonds, flour, cinnamon) 
-value ('Almond Delight', 400, 270, 279, 400, 10);
-insert into recipes(cookieName, flour, butter, icingSugar, potatoStarch, wheatFlour) 
-value ('Berliner', 350, 250, 100, 50, 5, 50);
 
