@@ -112,10 +112,27 @@ insert into customers value ('Gästkakor AB', 'Hässleholm');
 insert into customers value ('Skånekakor AB', 'Perstorp');
 
 insert into recipes values
-('Nut Ring', 'flour 450 g; butter 450 g; icing Sugar 190 g; roasted, Chopped Nuts 225 g'),
-('Nut Cookie', 'fine-Ground Nuts 750 g; ground, Roasted Nuts 625 g; bread Crumbs 125 g; sugar 375 g; egg Whites 3.5 dl; chocolate 50 g'),
-('Amneris', 'Marzipan 750 g; Butter 250 g; Eggs 250 g; Potato starch 25 g; Wheat flour 25 g'),
-('Tango', 'Butter 200 g; Sugar 250 g; Flour 300 g; Sodium bicarbonate 4 g; Vanilla 2 g'),
+('Nut Ring', 'flour' 450, 'g'),
+('Nut Ring', 'butter', 450, 'g'),
+('Nut Ring', 'icing Sugar' 190, 'g'),
+('Nut Ring', 'roasted, Chopped Nuts' 225, 'g'),
+('Nut Cookie', 'fine-Ground Nuts', 750, 'g'),
+('Nut Cookie', 'ground, Roasted Nuts', 625, 'g'),
+('Nut Cookie', 'bread Crumbs', 125, 'g'),
+('Nut Cookie', 'sugar', 375, 'g'),
+('Nut Cookie', 'egg Whites', 3.5, 'dl')
+('Nut Cookie', 'chocolate', 375, 'g'),
+('Amneris', 'Marzipan', 750, 'g'),
+('Amneris', 'Butter', 250, 'g')
+('Amneris', 'Eggs', 250, 'g'),
+('Amneris', 'Potato starch', 25, 'g'),
+('Amneris', 'Wheat flour', 25, 'g'),
+('Tango', 'Butter' ,200, 'g'),
+('Tango', 'Sugar' ,250, 'g'),
+('Tango', 'Flour' ,300, 'g'),
+('Tango', 'Butter' ,200, 'g'),
+('Tango', 'Sodium bicarbonate' ,4, 'g'),
+('Tango', 'Vanilla' ,2, 'g'),
 ('Almond Delight', 'Butter 400 g; Sugar 270 g; Chopped almonds 279 g; Flour 400 g; Cinnamon 10 g'),
 ('Berliner', 'Flour 350 g; Butter 250 g; Icing sugar 100 g; Eggs 50 g; Vanilla sugar 5 g; Chocolate 50 g');
 
