@@ -36,7 +36,6 @@ create table customers (
 
 create table orders(
 	customerName varchar (255) not null,
-	nbrPallets int (20) default '0',
 	deliveryDate date,
 	ifDelivered char (1) default 'n',
 	primary key(customerName, deliveryDate),
