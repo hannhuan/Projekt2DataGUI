@@ -5,6 +5,9 @@ drop table if exists orders;
 drop table if exists recipes;
 drop table if exists rawMaterial;
 drop table if exists customers;
+drop table if exists pallets;
+drop table if exists Blockedpallets;
+drop table if exists orderQuantity;
 set foreign_key_checks = 1;
 
 create table cookies(
@@ -12,20 +15,21 @@ create table cookies(
 	primary key (cookieName)
 );
 
-create table Pallet(
+create table Pallets(
 	cookieName varchar (255) not null,
-	palletLabel int not null auto_increment,
-	timeStamp datetime not null default CURRENT_TIMESTAMP,
+	palletID int not null,
+	prodTime datetime not null default CURRENT_TIMESTAMP,
 	status int not null default '0',
 	primary key (cookieName),
 	foreign key (cookieName) references cookies(cookieName)
 );
 create table BlockedPallets(
-	palletLabel int,
-	timeStamp datetime,
-	primary key(palletLabel),
-	foreign key(palletLabel) references pallet(palletLabel),
-	foreign key(timeStamp) references pallet(timeStamp)
+	palletID int,
+	blockedDate datetime,
+	prodTime datetime,
+	primary key(palletID),
+	foreign key(palletID) references pallets (palletID),
+	foreign key(prodTime) references pallets(prodTime)
 );	
 
 create table customers (
@@ -35,21 +39,21 @@ create table customers (
 );
 
 create table orders(
-	customerName varchar (255) not null,
+	orderID	int not null,
+	customerName varchar(255) not null,
 	deliveryDate date,
 	ifDelivered char (1) default 'n',
-	primary key(customerName, deliveryDate),
+	primary key(orderID),
 	foreign key (customerName) references customers (customerName)
 );
 
 create table orderQuantity(
-	customerName varchar (255),
-	deliveryDate date,
-	cookieName	varchar(255) not null,
-	nbrPallets	int (20) default '0',
-	primary key(customerName, deliveryDate),
-	foreign key (customerName, deliveryDate) references orders (customerName, deliveryDate),
-	foreign key (cookieName) references cookies (cookieName)
+	orderID int not null,
+	palletID int not null,
+	nbrPallets int (20) default '0',
+	primary key(orderID, palletID),
+	foreign key (orderID) references orders (orderID),
+	foreign key (palletID) references pallets (palletID) 
 );
 
 create table rawMaterial(
