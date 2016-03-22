@@ -20,7 +20,7 @@ create table Pallets(
 	palletID int not null,
 	prodTime datetime not null default CURRENT_TIMESTAMP,
 	status int not null default '0',
-	primary key (cookieName),
+	primary key (palletID),
 	foreign key (cookieName) references cookies(cookieName)
 );
 create table BlockedPallets(
