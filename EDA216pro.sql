@@ -26,10 +26,8 @@ create table Pallets(
 create table BlockedPallets(
 	palletID int,
 	blockedDate datetime,
-	prodTime datetime,
 	primary key(palletID),
-	foreign key(palletID) references pallets (palletID),
-	foreign key(prodTime) references pallets(prodTime)
+	foreign key(palletID) references pallets (palletID)
 );	
 
 create table customers (
@@ -57,25 +55,12 @@ create table orderQuantity(
 );
 
 create table rawMaterial(
-	ingredient varchar (255) not null,
-	totalAmount double,
+	ingredients varchar (255) not null,
+	totalAmount int,
 	storedDate date,
 	lastUpdate date,
-	unit varchar(5) not null,
-	primary key (ingredient)
+	primary key (ingredients)
 );
-
-create table recipes(
-	cookieName varchar(255) not null,
-	ingredient varchar(255) not null,
-	recipeAmount double not null,
-	unit varchar(5) not null,
-	primary key(cookieName, ingredient),
-	foreign key(ingredient) references rawMaterial(ingredient),
-	foreign key(cookieName) references cookies(cookieName)
-);	
-	
-	
 delimiter //
  create trigger dateCheck before insert on rawmaterials
      for each row
