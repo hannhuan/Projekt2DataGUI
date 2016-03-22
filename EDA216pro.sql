@@ -3,7 +3,7 @@ drop table if exists cookies;
 drop table if exists storage;
 drop table if exists orders;
 drop table if exists recipes;
-drop table if exists rawMaterial;
+drop table if exists rawMaterials;
 drop table if exists customers;
 drop table if exists pallets;
 drop table if exists Blockedpallets;
@@ -54,7 +54,7 @@ create table orderQuantity(
 	foreign key (palletID) references pallets (palletID) 
 );
 
-create table rawMaterial(
+create table rawMaterials(
 	ingredient varchar (255) not null,
 	totalAmount int,
 	storedDate date,
@@ -144,7 +144,7 @@ insert into recipes values
 ('Berliner', 'Chocolate', 50, 'g')
 ;
 
-insert into rawmaterial (ingredient, totalAmount, unit) values
+insert into rawmaterials (ingredient, totalAmount, unit) values
 ('Flour', 1000, 'g'),
 ('Butter', 1000, 'g'),
 ('Icing Sugar', 1000, 'g'),
