@@ -37,7 +37,7 @@ create table customers (
 );
 
 create table orders(
-	orderID	int not null,
+	orderID		int not null,
 	customerName varchar(255) not null,
 	deliveryDate date,
 	ifDelivered char (1) default 'n',
