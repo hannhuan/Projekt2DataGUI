@@ -115,7 +115,7 @@ insert into recipes values
 ('Nut Ring', 'butter', 450, 'g'),
 ('Nut Ring', 'icing Sugar', 190, 'g'),
 ('Nut Ring', 'roasted, Chopped Nuts', 225, 'g'),
-('Nut Cookie', 'fine-Ground Nuts', 750, 'g'),
+('Nut Cookie', 'fine-roasted Nuts', 750, 'g'),
 ('Nut Cookie', 'ground, Roasted Nuts', 625, 'g'),
 ('Nut Cookie', 'bread Crumbs', 125, 'g'),
 ('Nut Cookie', 'sugar', 375, 'g'),
