@@ -144,3 +144,27 @@ insert into recipes values
 ('Berliner', 'Chocolate', 50, 'g')
 ;
 
+insert into rawmaterial (ingredient, totalAmount, unit) values
+('Flour', 1000, 'g'),
+('Butter', 1000, 'g'),
+('Icing Sugar', 1000, 'g'),
+('Roasted, chopped nuts', 1000, 'g'),
+('Fine-roasted nuts', 1000, 'g'),
+('Ground, roasted nuts', 1000, 'g'),
+('Marzipan', 1000, 'g'),
+('Eggs', 1000, 'g'),
+('Bread Crumbs', 1000, 'g'),
+('Sugar', 1000, 'g'),
+('Egg Whites', 1000, 'dl'),
+('Chocolate', 1000, 'g'),
+('Potato Starch', 1000, 'g'),
+('Wheat Flour', 1000, 'g'),
+('Sodium Bicarbonate', 1000, 'g'),
+('Vanilla', 1000, 'g'),
+('Chopped Almonds', 1000, 'g'),
+('Cinnamon', 1000, 'g'),
+('Vanilla Sugar', 1000, 'g')
+;
+
+
+
