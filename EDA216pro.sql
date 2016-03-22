@@ -46,7 +46,7 @@ create table orders(
 );
 
 create table orderQuantity(
-	orderID int not null,
+	orderID int not null, 
 	palletID int not null,
 	nbrPallets int (20) default '0',
 	primary key(orderID, palletID),
