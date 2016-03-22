@@ -70,7 +70,7 @@ create table recipes(
 	unit varchar(5) not null,
 	primary key(cookieName, ingredient),
 	foreign key(cookieName) references cookies(cookieName),
-	foreign key(ingredient) references rawMaterial(ingredient)
+	foreign key(ingredient) references rawMaterials(ingredient)
 );
 
 delimiter //
