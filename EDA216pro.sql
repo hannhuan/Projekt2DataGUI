@@ -57,12 +57,25 @@ create table orderQuantity(
 );
 
 create table rawMaterial(
-	ingredients varchar (255) not null,
-	totalAmount int,
+	ingredient varchar (255) not null,
+	totalAmount double,
 	storedDate date,
 	lastUpdate date,
-	primary key (ingredients)
+	unit varchar(5) not null,
+	primary key (ingredient)
 );
+
+create table recipes(
+	cookieName varchar(255) not null,
+	ingredient varchar(255) not null,
+	recipeAmount double not null,
+	unit varchar(5) not null,
+	primary key(cookieName, ingredient),
+	foreign key(ingredient) references rawMaterial(ingredient),
+	foreign key(cookieName) references cookies(cookieName)
+);	
+	
+	
 delimiter //
  create trigger dateCheck before insert on rawmaterials
      for each row
