@@ -33,7 +33,7 @@ create table BlockedPallets(
 create table customers (
 	customerName varchar (255) not null,
 	adress varchar (255) not null,
-	primary key (customerName, adress)
+	primary key (customerName)
 );
 
 create table orders(
