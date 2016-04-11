@@ -48,7 +48,6 @@ create table orders(
 create table orderQuantity(
 	orderID int not null, 
 	palletID int not null,
-	nbrPallets int (20) default '0',
 	primary key(orderID, palletID),
 	foreign key (orderID) references orders (orderID),
 	foreign key (palletID) references pallets (palletID) 
